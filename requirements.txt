@@ -1,0 +1,13 @@
+streamlit==0.82.0
+pandas==1.2.4
+pickleshare==0.7.5
+pillow==8.2.0
+plotly-express==0.4.1
+matplotlib==3.4.2
+haversine==2.3.1
+requests==2.25.1
+urllib3==1.26.5
+neuralprophet<0.2.8
+xgboost==1.4.2
+lightgbm==3.2.1
+torch==1.8.1
