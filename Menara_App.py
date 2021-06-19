@@ -26,10 +26,10 @@ icon = Image.open("light_house.JPG")
 st.set_page_config(layout='wide', page_title='MENARA', page_icon=icon)
 
 #ok, now let's remove the menu button from Streamlit!!!
-#st.markdown(""" <style>
-#MainMenu {visibility: hidden;}
-#footer {visibility: hidden;}
-#</style> """, unsafe_allow_html=True)
+st.markdown(""" <style>
+MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style> """, unsafe_allow_html=True)
 
 
 # This app will be using a new layout options for Streamlit, so to have a clear visbility 
@@ -130,8 +130,8 @@ URL = ("redfine_houses_sales_2012_2021.csv")
 
 @st.cache(allow_output_mutation=True)
 def fetch_data():
-    df = pd.read_csv(URL, infer_datetime_format=True)
-    return df
+    df_2 = pd.read_csv(URL, infer_datetime_format=True)
+    return df_2
 
 price_forecast = fetch_data()
 
