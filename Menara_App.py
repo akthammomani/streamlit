@@ -128,7 +128,7 @@ btn1 = row2_1.button('Get Estimated Market Value')
 
 URL = ("redfine_houses_sales_2012_2021.csv")
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def fetch_data():
     df = pd.read_csv(URL, infer_datetime_format=True)
     return df
@@ -391,7 +391,7 @@ DATA_URL = ("NCA_df_app_v2.csv")
 
 #school = pd.read_csv(DATA_URL)
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def fetch_school():
     df = pd.read_csv(DATA_URL)
     return df
