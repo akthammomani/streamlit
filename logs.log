@@ -1,34 +1,36 @@
-2021-06-19 01:21:44,331; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning: 
+2021-06-19 03:02:32,499; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   errors=errors,
 
-2021-06-19 01:21:50,980; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning: 
+2021-06-19 03:14:33,332; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   errors=errors,
 
-2021-06-19 01:21:55,626; INFO; NP.utils; set_auto_seasonalities; Disabling weekly seasonality. Run NeuralProphet with weekly_seasonality=True to override this.
-2021-06-19 01:21:55,627; INFO; NP.utils; set_auto_seasonalities; Disabling daily seasonality. Run NeuralProphet with daily_seasonality=True to override this.
-2021-06-19 01:21:55,629; INFO; NP.config; set_auto_batch_epoch; Auto-set batch_size to 16
-2021-06-19 01:21:55,630; INFO; NP.config; set_auto_batch_epoch; Auto-set epochs to 362
-2021-06-19 01:21:56,095; INFO; NP.utils_torch; lr_range_test; lr-range-test results: steep: 2.02E-01, min: 5.67E-02
-2021-06-19 01:21:56,098; INFO; NP.utils_torch; lr_range_test; learning rate range test selected lr: 8.66E-02
-2021-06-19 01:22:00,543; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning:
-
-
+2021-06-19 03:14:35,422; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errors=errors,
 
-
-2021-06-19 01:23:15,222; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning:
-
-
+2021-06-19 03:28:43,020; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errors=errors,
 
+2021-06-19 03:32:53,476; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errors=errors,
+
+2021-06-19 03:43:10,626; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  errors=errors,
 

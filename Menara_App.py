@@ -51,6 +51,13 @@ with row0_2:
 null1_1, row1_2, null1_2, row1_3, null1_3 = st.beta_columns((0.23, 5, 0.3, 5, 0.17))
 
 # Let's give a brief summary about our app Menara:
+
+with row1_3:
+    st.write(
+    """
+    ### **Introduction**
+    """) 
+
 with row1_3:
     st.write(
     """
