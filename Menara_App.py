@@ -127,8 +127,15 @@ with row2_1:
 btn1 = row2_1.button('Get Estimated Market Value') 
 
 URL = ("redfine_houses_sales_2012_2021.csv")
-#time.sleep(1) # Sleep for 3 seconds   
-price_forecast = pd.read_csv(URL, infer_datetime_format=True)
+
+@st.cache
+def fetch_data():
+    df = pd.read_csv(URL, infer_datetime_format=True)
+    return df
+
+price_forecast = fetch_data()
+
+#price_forecast = pd.read_csv(URL, infer_datetime_format=True)
 #Now, let's reshape df dataframe for better visibility using .melt(): df
 price_forecast = pd.melt(price_forecast, id_vars=['zipcode'], value_vars=price_forecast.columns[1:])
 #let's reorder columns:
@@ -382,7 +389,14 @@ Search_radius = row6_2.selectbox('Search Distance [miles]',(1,2,3), index=2, hel
 
 DATA_URL = ("NCA_df_app_v2.csv")
 
-school = pd.read_csv(DATA_URL)
+#school = pd.read_csv(DATA_URL)
+
+@st.cache
+def fetch_school():
+    df = pd.read_csv(DATA_URL)
+    return df
+
+school = fetch_school()
 
 
 s = np.array([[Search_radius]])
