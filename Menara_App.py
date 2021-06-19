@@ -26,10 +26,10 @@ icon = Image.open("light_house.JPG")
 st.set_page_config(layout='wide', page_title='MENARA', page_icon=icon)
 
 #ok, now let's remove the menu button from Streamlit!!!
-st.markdown(""" <style>
-MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style> """, unsafe_allow_html=True)
+#st.markdown(""" <style>
+#MainMenu {visibility: hidden;}
+#footer {visibility: hidden;}
+#</style> """, unsafe_allow_html=True)
 
 
 # This app will be using a new layout options for Streamlit, so to have a clear visbility 
@@ -124,29 +124,7 @@ with row2_1:
     """)    
  
 # This button will control the heart of the APP which is the Machine Learning part :)
-btn1 = row2_1.button('Get Estimated Market Value') 
-
-URL = ("redfine_houses_sales_2012_2021.csv")
-
-@st.cache(allow_output_mutation=True)
-def fetch_data():
-    df_2 = pd.read_csv(URL, infer_datetime_format=True)
-    return df_2
-
-price_forecast = fetch_data()
-
-#price_forecast = pd.read_csv(URL, infer_datetime_format=True)
-#Now, let's reshape df dataframe for better visibility using .melt(): df
-price_forecast = pd.melt(price_forecast, id_vars=['zipcode'], value_vars=price_forecast.columns[1:])
-#let's reorder columns:
-price_forecast = price_forecast[['variable', 'value', 'zipcode']]
-price_forecast['variable'] = price_forecast['variable'].astype('datetime64[ns]')
-price_forecast['value'] = price_forecast['value'].astype('float64')
-price_forecast['zipcode'] = price_forecast['zipcode'].astype('float64')
-
-# Let's rename the following columns for NeuralProphet:
-price_forecast.rename(columns = {list(price_forecast)[0]: 'ds', list(price_forecast)[1]: 'y', list(price_forecast)[2]: 'zipcode'}, inplace = True)
-            
+btn1 = row2_1.button('Get Estimated Market Value')            
 
 
 # Now, let's load our saved Stacking Regressor Model:
@@ -199,6 +177,27 @@ with row2_1:
 
 st.write('---')   
 null4_0,row4_1, row4_2, row4_3 , row4_5= st.beta_columns((0.17,6,0.1, 1.6, 0.17))
+
+URL = ("redfine_houses_sales_2012_2021.csv")
+
+@st.cache(allow_output_mutation=True)
+def fetch_data():
+    df_2 = pd.read_csv(URL, infer_datetime_format=True)
+    return df_2
+
+price_forecast = fetch_data()
+
+#price_forecast = pd.read_csv(URL, infer_datetime_format=True)
+#Now, let's reshape df dataframe for better visibility using .melt(): df
+price_forecast = pd.melt(price_forecast, id_vars=['zipcode'], value_vars=price_forecast.columns[1:])
+#let's reorder columns:
+price_forecast = price_forecast[['variable', 'value', 'zipcode']]
+price_forecast['variable'] = price_forecast['variable'].astype('datetime64[ns]')
+price_forecast['value'] = price_forecast['value'].astype('float64')
+price_forecast['zipcode'] = price_forecast['zipcode'].astype('float64')
+
+# Let's rename the following columns for NeuralProphet:
+price_forecast.rename(columns = {list(price_forecast)[0]: 'ds', list(price_forecast)[1]: 'y', list(price_forecast)[2]: 'zipcode'}, inplace = True)
 
 with row4_1:
     st.write(
