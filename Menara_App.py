@@ -153,30 +153,34 @@ model =  load_model()
 #forecast_model = pkl.load(open("forecast_model_v1.pkl", 'rb'))
 
 
-
-x = np.array([[sqft, median_price_sqft_cluster,gsRating,median_income,lot_size,property_type,beds,zipcode]])
-df = pd.DataFrame(x, columns=['sqft', 'median_price_sqft_cluster','gsRating','median_income','lot_size','property_type','beds','zipcode'])
+if btn1:
+    try:
+        x = np.array([[sqft, median_price_sqft_cluster,gsRating,median_income,lot_size,property_type,beds,zipcode]])
+        df = pd.DataFrame(x, columns=['sqft', 'median_price_sqft_cluster','gsRating','median_income','lot_size','property_type','beds','zipcode'])
         
-# let's encode 'Property Type':
-df.loc[df['property_type'] == 'Single Family Residential', 'property_type'] = 0.00
-df.loc[df['property_type'] == 'Condo/Co-op', 'property_type'] = 1.00
-df.loc[df['property_type'] == 'Townhouse', 'property_type'] = 2.00
+        # let's encode 'Property Type':
+        df.loc[df['property_type'] == 'Single Family Residential', 'property_type'] = 0.00
+        df.loc[df['property_type'] == 'Condo/Co-op', 'property_type'] = 1.00
+        df.loc[df['property_type'] == 'Townhouse', 'property_type'] = 2.00
 
        
-# Now let's change datatype from object to float:
-df = df.astype('float64')
+        # Now let's change datatype from object to float:
+        df = df.astype('float64')
 
-result = model.predict(df)[0]
+        result = model.predict(df)[0]
 
-# Applying 95% Confidence Interval:                
-max_value = result + 119240.0888
-min_value = max_value - 100306.5285
-final = (max_value + min_value)/2
-with row2_1:
-    st.write("Menara Estimate: ${:0,.2f}".format(final))
-with row2_1:
-    st.write('Estimated Sales Price Range:', " ${:0,.2f}".format(min_value), " - ", " ${:0,.2f}".format(max_value))
+        # Applying 95% Confidence Interval:                
+        max_value = result + 119240.0888
+        min_value = max_value - 100306.5285
+        final = (max_value + min_value)/2
+        with row2_1:
+            st.write("Menara Estimate: ${:0,.2f}".format(final))
+        with row2_1:
+            st.write('Estimated Sales Price Range:', " ${:0,.2f}".format(min_value), " - ", " ${:0,.2f}".format(max_value))
 
+
+    except Exception as e:
+        row2_1.error(e)
 
 with row2_1:
     st.write(
