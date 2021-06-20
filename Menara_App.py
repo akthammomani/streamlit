@@ -55,7 +55,7 @@ null1_1, row1_2, null1_2, row1_3, null1_3 = st.beta_columns((0.23, 5, 0.3, 5, 0.
 with row1_3:
     st.write(
     """
-    ### **Introduction**
+      ### **Introduction**
     """) 
 
 with row1_3:
@@ -105,13 +105,13 @@ with row2_4:
 
 
 # Now, let's divide user's input into 2 groups: House Details & Neighborhood Details and each will be in seperate column: row2_3 & row2_4
-sqft = row2_3.number_input('Living Space - Sqft', min_value=381, max_value=5629, value=4800, help="Min=381, Max=5629")
-median_price_sqft_cluster = row2_4.number_input('Median sqft Price',min_value=207, max_value=1072, value=720, help="Min=207, Max=1072")
+sqft = row2_3.number_input('Living Space - Sqft', min_value=381, max_value=5000, value=4800, help="Min=381, Max=5000")
+median_price_sqft_cluster = row2_4.number_input('Median sqft Price',min_value=207, max_value=850, value=720, help="Min=207, Max=850")
 gsRating = row2_4.number_input('GreatSchools Rating', min_value=1, max_value=10, value=9, help="Min=1, Max=10, [GreatSchools.org](https://www.greatschools.org/)")
 median_income = row2_4.number_input('Annual Income', min_value=45000, max_value=182000, value=170000, help="Min=$25K, Max=$182000")
 lot_size = row2_3.number_input('Lot Size', min_value=0, max_value=39987, value=4800, help="Min=0, Max=39987")
 property_type = row2_3.selectbox('Property Type', ('Single Family Residential', 'Condo/Co-op', 'Townhouse'), index=0)
-beds = row2_3.selectbox('Num of Bedrooms', (1, 2, 3, 4, 5, 6), index=3)
+beds = row2_3.selectbox('Num of Bedrooms', (1, 2, 3, 4, 5), index=3)
 zipcode = row2_4.selectbox('Zip Code', (94506,94507,94509,94518,94519,94521,94523,94526,94531,94541,94544,94545,
                                        94546,94550,94551,94553,94565,94566,94568,94577,94578,94582,94583,94588,
                                        94595,94597,94598,94801,94804,95050,95051), index=18)
