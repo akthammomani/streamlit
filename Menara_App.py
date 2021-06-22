@@ -13,6 +13,7 @@ import requests
 import urllib.parse
 import time
 import io
+import msoffcrypto
 import plotly.graph_objects as go
 from neuralprophet import NeuralProphet
 from neuralprophet import set_random_seed
@@ -400,13 +401,18 @@ search = pd.read_csv(data, sep=",", header=None, names=columns)
 Search_radius = row6_2.selectbox('Search Distance [miles]',(1,2,3), index=2, help="Available North California Cities: Alameda,Alamo,Albany,Antioch,Bay Point,Berkeley,Brentwood,Castro Valley,Clayton,Concord,Danville,Dublin,East Palo Alto,El Cerrito,El Sobrante,Emeryville,Hayward,Kensington,Lafayette,Livermore,Los Alamos,Los Altos,Los Altos Hills,Martinez,Menlo Park,Mountain View,Oakland,Oakley,Palo Alto,Piedmont,Pittsburg,Pleasant Hill,Pleasanton,Portola Valley,Richmond,San Jose,San Leandro,San Lorenzo,San Pablo,San Ramon,Santa Clara,Stanford,Sunnyvale,Sunol,Union City,Walnut CreeK")   
 
 
-DATA_URL = ("NCA_df_app_v2.csv")
+DATA_URL = ("NCA_df_app_v2.xlsx")
 
 #school = pd.read_csv(DATA_URL)
 
 @st.cache(allow_output_mutation=True)
 def fetch_school():
-    df = pd.read_csv(DATA_URL)
+    #df = pd.read_excel(DATA_URL)
+    file = msoffcrypto.OfficeFile(open(DATA_URL, "rb"))
+    file.load_key(st.secrets.db_credentials) # Use password
+    decrypted = io.BytesIO()
+    file.decrypt(decrypted)
+    df = pd.read_excel(decrypted)
     return df
 
 school = fetch_school()
