@@ -410,7 +410,7 @@ def fetch_school():
     #df = pd.read_excel(DATA_URL)
     file = msoffcrypto.OfficeFile(open(DATA_URL, "rb"))
     #st.write("password:", st.secrets["password"])
-    file.load_key(**st.secrets.credentials) # Use password
+    file.load_key(password="stayaway2021$") # Use password
     decrypted = io.BytesIO()
     file.decrypt(decrypted)
     df = pd.read_excel(decrypted)
