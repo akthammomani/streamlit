@@ -4,3 +4,11 @@ A value is trying to be set on a copy of a slice from a DataFrame
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   errors=errors,
 
+2021-06-22 02:17:27,729; WARNING; py.warnings; _showwarnmsg; c:\users\aktha\anaconda3\envs\nprophet\lib\site-packages\pandas\core\frame.py:4449: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+

@@ -405,12 +405,12 @@ DATA_URL = ("NCA_df_app_v2.xlsx")
 
 #school = pd.read_csv(DATA_URL)
 
-@st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True, hash_funcs={type(st.secrets): _hash_st_secrets)
 def fetch_school():
     #df = pd.read_excel(DATA_URL)
     file = msoffcrypto.OfficeFile(open(DATA_URL, "rb"))
     #st.write("password:", st.secrets["password"])
-    file.load_key(password="stayaway2021$") # Use password
+    file.load_key(st.secrets["password"]) # Use password
     decrypted = io.BytesIO()
     file.decrypt(decrypted)
     df = pd.read_excel(decrypted)
