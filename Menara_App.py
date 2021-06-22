@@ -443,7 +443,7 @@ for _,row in school.iterrows():
 
 search_school = pd.melt(search, id_vars=['city', 'zipcode', 'lat', 'lon'], value_vars=school['ncesId'])
 
-search_school.rename(columns = {list(search_school)[4]: 'ncesId', list(search_school)[5]: 'distance_miles'}, inplace = True)
+search_school.rename(columns = {list(search_school)[4]: 'ncesId', list(search_school)[5]: 'Distance [miles]'}, inplace = True)
 
 
 school = school[['name', 'ncesId', 'gsRating', 'enrollment', 'gradeRange' ,'lat', 'lon']]
@@ -461,7 +461,7 @@ if btn_school:
         filter = distance['radius'].values[0]
         zip = search['zipcode'].values[0]
         search_school_rating.rename(columns = {list(search_school_rating)[6]: 'School Name', list(search_school_rating)[7]: 'GreatSchools Rating'}, inplace = True)
-        search_school_rating = search_school_rating[['city','zipcode','lat','lon','School Name', 'GreatSchools Rating', 'Students','gradeRange','distance_miles', 'latitude', 'longitude']]
+        search_school_rating = search_school_rating[['city','zipcode','lat','lon','School Name', 'GreatSchools Rating', 'Students','gradeRange','Distance [miles]', 'latitude', 'longitude']]
        
         zipcode_stats= search_school_rating[search_school_rating['zipcode'] == zip]
         schools_count_all = zipcode_stats.groupby('zipcode')['School Name'].count().reset_index()
@@ -470,7 +470,7 @@ if btn_school:
         min_rate_all = zipcode_stats.groupby('zipcode')['GreatSchools Rating'].min().reset_index()
         avg_stud_zip_all = zipcode_stats.groupby('zipcode')['Students'].mean().reset_index()
         
-        search_school_rating = search_school_rating[search_school_rating['distance_miles'] <= filter]
+        search_school_rating = search_school_rating[search_school_rating['Distance [miles]'] <= filter]
         with row7_2:    # Let's create some spacing between different rows     
             st.write(
             """ 
@@ -482,14 +482,14 @@ if btn_school:
                 """ 
                 #### **All Rated Schools within search location:**
                 """ )                                                                                                                   # Using hack to remove index:) assign(hack='').set_index('hack')
-            st.dataframe(search_school_rating[['School Name', 'gradeRange','GreatSchools Rating', 'Students','distance_miles']].assign(hack='').set_index('hack'), width=1500, height=250)
+            st.dataframe(search_school_rating[['School Name', 'gradeRange','GreatSchools Rating', 'Students','Distance [miles]']].assign(hack='').set_index('hack'), width=1500, height=250)
      
             schools_count = search_school_rating.groupby('zipcode')['School Name'].count().reset_index()
             avg_rate = search_school_rating.groupby('zipcode')['GreatSchools Rating'].mean().reset_index()
             max_rate = search_school_rating.groupby('zipcode')['GreatSchools Rating'].max().reset_index()
             min_rate = search_school_rating.groupby('zipcode')['GreatSchools Rating'].min().reset_index()
-            longest_distance = search_school_rating.groupby('zipcode')['distance_miles'].max().reset_index()
-            closest_distance = search_school_rating.groupby('zipcode')['distance_miles'].min().reset_index()
+            longest_distance = search_school_rating.groupby('zipcode')['Distance [miles]'].max().reset_index()
+            closest_distance = search_school_rating.groupby('zipcode')['Distance [miles]'].min().reset_index()
             avg_stud_zip = search_school_rating.groupby('zipcode')['Students'].mean().reset_index()
   
         with row7_2:         
@@ -497,7 +497,7 @@ if btn_school:
                 """ 
                 #### **Schools Insights based on Search Location:**
                 """ )
-            st.write("* Within", filter, "miles of the search location", ", There are", schools_count['School Name'].values[0], "Schools, where The closest is within ", closest_distance['distance_miles'].values[0], "miles and The farthest is within", longest_distance['distance_miles'].values[0], "miles")
+            st.write("* Within", filter, "miles of the search location", ", There are", schools_count['School Name'].values[0], "Schools, where The closest is within ", closest_distance['Distance [miles]'].values[0], "miles and The farthest is within", longest_distance['Distance [miles]'].values[0], "miles")
             st.write("* For the above ", schools_count['School Name'].values[0], "Schools, the GreatSchools Rating Range is between: ", min_rate['GreatSchools Rating'].values[0], " - ", max_rate['GreatSchools Rating'].values[0],
                      ", and the average GreatSchools Rating is ", round(avg_rate['GreatSchools Rating'].values[0], 2), ".")
             st.write("* The Average Students enrolled in these ", schools_count['School Name'].values[0], "Schools, is: ", int(avg_stud_zip['Students'].values[0]), " Students.")
@@ -523,7 +523,7 @@ if btn_school:
 
             #mapbox_access_token = open("pk.eyJ1IjoiYWt0aGFtbW9tYW5pIiwiYSI6ImNrcDU0dGJsbTAzY2gydnJyempia3FpZ2QifQ.3oOkDE4Mh3rZ9WCosKSFcQ").read()
 
-            fig = px.scatter_mapbox(search_school_rating, lat='latitude', hover_data =['School Name', 'GreatSchools Rating', 'Students','gradeRange','distance_miles'], lon='longitude', mapbox_style='open-street-map', 
+            fig = px.scatter_mapbox(search_school_rating, lat='latitude', hover_data =['School Name', 'GreatSchools Rating', 'Students','gradeRange','Distance [miles]'], lon='longitude', mapbox_style='open-street-map', 
                                      center=dict(lon=search_school_rating['lon'].values[0], lat=search_school_rating['lat'].values[0]),zoom=11, size_max=10, 
                                      height=850, title = 'Schools per GreatSchools Rating', size='GreatSchools Rating', color='GreatSchools Rating', color_continuous_scale= [
                                                                                                                                                                               "black",
