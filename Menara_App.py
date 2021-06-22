@@ -405,7 +405,7 @@ DATA_URL = ("NCA_df_app_v2.xlsx")
 
 #school = pd.read_csv(DATA_URL)
 
-@st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True)
 def fetch_school():
     #df = pd.read_excel(DATA_URL)
     file = msoffcrypto.OfficeFile(open(DATA_URL, "rb"))
