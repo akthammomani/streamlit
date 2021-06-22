@@ -572,7 +572,7 @@ with row8_1:
     st.write(
     """
     ### **Contacts**
-    [![](https://img.shields.io/badge/GitHub-Follow-informational)](https://github.com/akthammomani)
+    [![](https://img.shields.io/badge/GitHub-Follow-informational)](https://github.com/akthammomani/Menara-App-Predict-House-Price-CA)
     [![](https://img.shields.io/badge/Linkedin-Connect-informational)](https://www.linkedin.com/in/akthammomani/)
     [![](https://img.shields.io/badge/Open-Issue-informational)](https://github.com/akthammomani/Capstone-Project-2-Predicting-House-Prices-CA-Bay-Area/issues)
     [![MAIL Badge](https://img.shields.io/badge/-aktham.momani81@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:aktham.momani81@gmail.com)](mailto:aktham.momani81@gmail.com)
