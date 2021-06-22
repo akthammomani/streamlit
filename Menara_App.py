@@ -409,7 +409,7 @@ DATA_URL = ("NCA_df_app_v2.xlsx")
 def fetch_school():
     #df = pd.read_excel(DATA_URL)
     file = msoffcrypto.OfficeFile(open(DATA_URL, "rb"))
-    file.load_key(st.secrets.db_credentials) # Use password
+    file.load_key("DB password:", st.secrets["password"]) # Use password
     decrypted = io.BytesIO()
     file.decrypt(decrypted)
     df = pd.read_excel(decrypted)
